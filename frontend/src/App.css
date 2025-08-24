@@ -1,0 +1,315 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Global loading animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Override Amplify UI styles for split-screen layout with #2596be theme */
+.amplify-authenticator {
+  --amplify-colors-brand-primary-10: #e6f7fc;
+  --amplify-colors-brand-primary-20: #cceff9;
+  --amplify-colors-brand-primary-40: #7fc9e8;
+  --amplify-colors-brand-primary-60: #2596be;
+  --amplify-colors-brand-primary-80: #1e7da3;
+  --amplify-colors-brand-primary-90: #175f7a;
+  --amplify-colors-brand-primary-100: #0f4050;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Remove default authenticator styling since we're using split-screen */
+.amplify-authenticator__form {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  max-width: none !important;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.amplify-authenticator__router {
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Style the form container */
+.amplify-authenticator [data-amplify-router-content] {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(37, 150, 190, 0.1);
+  border: 1px solid #f0f0f0;
+}
+
+/* Input field styling with #2596be theme */
+.amplify-input {
+  border-radius: 8px;
+  border: 2px solid #e6f7fc;
+  transition: border-color 0.2s ease;
+}
+
+.amplify-input:focus {
+  border-color: #2596be;
+  box-shadow: 0 0 0 3px rgba(37, 150, 190, 0.1);
+}
+
+/* Button styling with #2596be theme */
+.amplify-button--primary {
+  background: linear-gradient(135deg, #2596be, #1e7da3);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 150, 190, 0.3);
+}
+
+.amplify-button--primary:hover {
+  background: linear-gradient(135deg, #1e7da3, #175f7a);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 150, 190, 0.4);
+}
+
+.amplify-button--link {
+  color: #2596be;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.amplify-button--link:hover {
+  color: #1e7da3;
+  text-decoration: underline;
+}
+
+/* Forgot password link styling */
+.amplify-button[data-amplify-router-navigate="resetPassword"],
+.amplify-button[type="button"] {
+  color: #2596be !important;
+  background: none !important;
+  border: none !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0 !important;
+  margin-top: 1rem;
+}
+
+.amplify-button[data-amplify-router-navigate="resetPassword"]:hover,
+.amplify-button[type="button"]:hover {
+  color: #1e7da3 !important;
+}
+
+/* Label styling */
+.amplify-label {
+  color: #1e7da3;
+  font-weight: 500;
+}
+
+/* Error message styling */
+.amplify-alert--error {
+  background-color: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+  border-radius: 8px;
+}
+
+/* Success message styling */
+.amplify-alert--info {
+  background-color: #e6f7fc;
+  border: 1px solid #2596be;
+  color: #1e7da3;
+  border-radius: 8px;
+}
+
+/* Hide sign up tab and related elements */
+.amplify-tabs__item:last-child,
+.amplify-tabs__panel:last-child {
+  display: none !important;
+}
+
+/* Style the sign in tab */
+.amplify-tabs__item {
+  color: #1e7da3;
+  font-weight: 600;
+}
+
+.amplify-tabs__item[data-state="active"] {
+  color: #2596be;
+  border-bottom-color: #2596be;
+}
+
+/* Custom form container */
+.amplify-authenticator__form-container {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Loading states */
+.amplify-loader {
+  border-color: #e6f7fc;
+  border-top-color: #2596be;
+}
+
+/* Reset password form specific styling */
+.amplify-authenticator [data-amplify-route="resetPassword"] {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.amplify-authenticator [data-amplify-route="confirmResetPassword"] {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Enhanced forgot password button */
+.amplify-button[data-variation="link"] {
+  background: none !important;
+  border: none !important;
+  color: #2596be !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0 !important;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.amplify-button[data-variation="link"]:hover {
+  color: #1e7da3 !important;
+  text-decoration: underline;
+}
+
+/* Back to sign in link styling */
+.amplify-button[data-amplify-router-navigate="signIn"] {
+  color: #2596be !important;
+  background: none !important;
+  border: none !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.amplify-button[data-amplify-router-navigate="signIn"]:hover {
+  color: #1e7da3 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  /* Stack vertically on mobile */
+  #root > div {
+    flex-direction: column !important;
+  }
+  
+  /* Adjust branding side for mobile */
+  .branding-side {
+    min-height: 40vh !important;
+    padding: 2rem 1.5rem !important;
+  }
+  
+  /* Adjust form side for mobile */
+  .amplify-authenticator [data-amplify-router-content] {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .amplify-authenticator [data-amplify-router-content] {
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  #root {
+    padding: 0;
+  }
+}
+
+/* Password strength indicator (if needed) */
+.amplify-password-field__show-password {
+  color: #2596be !important;
+}
+
+/* Form field groups */
+.amplify-field-group {
+  margin-bottom: 1rem;
+}
+
+.amplify-field-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Verification code input styling */
+.amplify-input[autocomplete="one-time-code"] {
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+}
+
+/* Success states */
+.amplify-alert--success {
+  background-color: #e6f7fc;
+  border: 1px solid #2596be;
+  color: #1e7da3;
+  border-radius: 8px;
+}
+
+/* Original styles (keeping for compatibility) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
